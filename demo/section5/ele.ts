@@ -1,0 +1,3 @@
+interface UIElement{
+    addClikcListener(onclick)
+}

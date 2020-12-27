@@ -5,11 +5,11 @@ import {
   useStore as baseUseStore,
 } from "vuex";
 import { InjectionKey } from "vue";
-import { RootInterface, AllstateTypes } from "./type";
+import { IAllstate, IRoot } from "./type";
 import user from "./modules/user";
 import sys from "./modules/sys";
 
-export default createStore<RootInterface>({
+export default createStore<IRoot>({
   modules: {
     user,
     sys,
@@ -17,8 +17,8 @@ export default createStore<RootInterface>({
   plugins: [createLogger()],
 });
 
-export const key: InjectionKey<Store<RootInterface>> = Symbol("vue-store");
+export const key: InjectionKey<Store<IRoot>> = Symbol("vue-store");
 
-export function useStore<T = AllstateTypes>() {
+export function useStore<T = IAllstate>() {
   return baseUseStore<T>(key);
 }

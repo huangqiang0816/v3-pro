@@ -1,7 +1,7 @@
 import { Module } from "vuex";
-import { sysInterface, RootInterface } from "../type";
+import { ISys, IRoot } from "../type";
 
-const sys: Module<sysInterface, RootInterface> = {
+const sys: Module<ISys, IRoot> = {
   namespaced: true,
   state: {
     fold: false,

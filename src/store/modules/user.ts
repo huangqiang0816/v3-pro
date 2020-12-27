@@ -1,8 +1,8 @@
 import { setToken, getToken } from "../../utils/auth";
 import { Module } from "vuex";
-import { userInterFace, RootInterface } from "../type";
+import { IRoot, IUser } from "../type";
 
-const user: Module<userInterFace, RootInterface> = {
+const user: Module<IUser, IRoot> = {
   state: {
     token: getToken(),
     tenantId: "",

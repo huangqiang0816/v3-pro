@@ -1,17 +1,17 @@
 /** root层state类型定义 */
-export interface RootInterface {}
+export interface IRoot{}
 
-export interface userInterFace {
+export interface IUser{
   token: string | null;
   tenantId: string | number;
   sysId: string | number;
 }
-
-export interface sysInterface {
+export interface ISys{
   fold: boolean;
 }
 
-export interface AllstateTypes extends RootInterface {
-  user: userInterFace;
-  sys: sysInterface;
+export interface IAllstate extends IRoot{
+  user: IUser,
+  sys: ISys
 }
+

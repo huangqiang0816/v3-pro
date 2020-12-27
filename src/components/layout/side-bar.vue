@@ -5,13 +5,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, defineComponent, nextTick, reactive, watch } from "vue";
-import {  useStore } from "@/store";
+import { useStore } from "@/store";
+import { IAllstate } from "@/store/type";
+import { Store } from "vuex";
+
 export default defineComponent({
   name: "sideBar",
   setup() {
-    const store = useStore();
+    const store: Store<IAllstate> = useStore();
     // 开关逻辑
     const isFold = computed(() => store.state.sys.fold);
     const changeFold = () => {
