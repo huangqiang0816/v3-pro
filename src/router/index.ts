@@ -1,25 +1,40 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const _import = require('./import-' + process.env.NODE_ENV)
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: { name: 'dashboard' },
+    component: _import('layout/index'),
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: _import('dashboard')
+      },
+      {
+        path: '/details',
+        name: 'details',
+        component: _import('details')
+      }
+    ]
+  }
+]
+// 基础路由配置
+const globalRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/404',
+    component: _import('404')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/login',
+    component: _import('login')
   }
 ]
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: globalRoutes.concat(routes)
 })
-
-export default router

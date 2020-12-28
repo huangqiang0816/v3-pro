@@ -1,24 +1,12 @@
-# cli-demo
+### 项目结构
 
-## Project setup
-```
-yarn install
-```
+    - assets(静态资源)
+    - components（组件）
+    - router（路由配置、权限配置）
+    - plugins（插件）
+    - store（数据管理）
+    - styles（样式）
+    - types（类型）
+    - pages（页面）
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+###
