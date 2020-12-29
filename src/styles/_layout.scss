@@ -1,0 +1,71 @@
+$layout_header: 50px; // 头部的高度值
+$layout_header_bg: #547FFF;
+$app_main_bg: #e3e3e3;
+$app_sidebar_width: 260px;
+$app_sidebar_width--close: 60px;
+$tarnsation_time: .3s;
+
+/* 主体布局 */
+.layout-container {
+  height: 100vh;
+  overflow: hidden;
+
+  header {
+    background-color: $layout_header_bg;
+    height: $layout_header;
+    box-sizing: border-box;
+    box-shadow: 1px 0 2px 0px rgba($color: #000000, $alpha: 0.8);
+  }
+
+  .layout-content {
+    height: calc(100vh - #{$layout_header});
+    display: flex;
+    .app-sidebar {
+      width: $app_sidebar_width;
+      transition: width $tarnsation_time ease;
+      overflow: hidden;
+      &.close {
+        width: $app_sidebar_width--close;
+      }
+    }
+    .app-main {
+      flex: 1;
+      background-color: $app_main_bg;
+    }
+  }
+}
+
+/* sidebar */
+.app-sidebar {
+  position: relative;
+  .check_btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    overflow: hidden;
+    box-shadow: 0px -3px 5px -3px rgba($color: #4D76EC, $alpha: 0.8);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 12px;
+    box-sizing: border-box;
+    background-color: #4D76EC;
+    .trans .iconfont {
+      display: inline-block;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  .image {
+    width: $app_sidebar_width;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

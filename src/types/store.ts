@@ -1,14 +1,15 @@
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface RootStateInterface {
-  fold: boolean;
 }
+// 用户信息
 export interface UserInfoInterface {
-    token: string;
-    tenantId: string;
-    sysId: string;
+  token: string;
+  tenantId: string;
+  sysId: string;
 }
-
-export interface SysConfigInterface extends UserInfoInterface{
-    name? : string;
+//
+export interface SysConfigInterface extends UserInfoInterface {
+  fold: boolean;
 }
 
 export interface AllStateInterface extends RootStateInterface {

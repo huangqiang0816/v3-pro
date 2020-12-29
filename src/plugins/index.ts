@@ -7,5 +7,5 @@ import '@/styles/index.scss'
 import ElementPlus from 'element-plus'
 
 export default (app: App<Element>) => {
-  app.use(ElementPlus)
+  app.use(ElementPlus, { size: 'small' })
 }
