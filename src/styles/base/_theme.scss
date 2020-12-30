@@ -1,0 +1,25 @@
+$colo-white: #ffffff;
+$color-black: #000000;
+$layout_header: 50px; // 头部的高度值
+$layout_header_bg: #547fff; //头部的背景色
+$layout_header_bg_hover: #4d76ec; //hover颜色
+$app_main_bg: #e3e3e3; // 主体部分背景色
+
+$app_sidebar_width: 260px; // sidebar展开时的宽度
+$app_sidebar_width--close: 50px; // 对应关闭的宽度
+$tarnsation_time: 0.3s; // 动画时间
+
+$layout_sidebar_text_color: #ffffff; //菜单字体颜色
+$layout_sidebar_text_color--hover: mix(
+  $colo-white,
+  $color-black,
+  90%
+); // 菜单hover选中字体颜色
+$layout_sidebar_text_color--active: mix(
+  $colo-white,
+  $color-black,
+  80%
+); // 菜单hover选中字体颜色
+$layout_sidebar_bg: $layout_header_bg;
+$layout_sidebar_bg--hover: mix($colo-white, $layout_header_bg, 10%);
+$layout_sidebar_bg--active: mix($colo-white, $layout_header_bg, 20%);

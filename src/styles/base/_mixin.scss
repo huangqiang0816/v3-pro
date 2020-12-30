@@ -1,0 +1,22 @@
+/*弹性盒子实现的水平锤子居中*/
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// 
+@mixin sidebar_item_hover {
+  color: $layout_sidebar_text_color--hover;
+  background-color: $layout_sidebar_bg--hover;
+  i {
+    color: inherit;
+  }
+}
+
+@mixin sidebar_item_active {
+  color: $layout_sidebar_text_color--active;
+  // background-color: $layout_sidebar_bg--active;
+  i {
+    color: inherit;
+  }
+}

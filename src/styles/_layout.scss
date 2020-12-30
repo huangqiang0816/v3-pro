@@ -1,32 +1,27 @@
-$layout_header: 50px; // 头部的高度值
-$layout_header_bg: #547FFF;
-$app_main_bg: #e3e3e3;
-$app_sidebar_width: 260px;
-$app_sidebar_width--close: 60px;
-$tarnsation_time: .3s;
+@import "./base/theme";
+@import './base/mixin';
 
 /* 主体布局 */
 .layout-container {
   height: 100vh;
   overflow: hidden;
-
-  header {
-    background-color: $layout_header_bg;
-    height: $layout_header;
-    box-sizing: border-box;
-    box-shadow: 1px 0 2px 0px rgba($color: #000000, $alpha: 0.8);
+  display: flex;
+  .app-sidebar {
+    width: $app_sidebar_width;
+    transition: width $tarnsation_time ease;
+    overflow: hidden;
+    &.close {
+      width: $app_sidebar_width--close;
+    }
   }
-
   .layout-content {
-    height: calc(100vh - #{$layout_header});
+    flex: 1;
     display: flex;
-    .app-sidebar {
-      width: $app_sidebar_width;
-      transition: width $tarnsation_time ease;
-      overflow: hidden;
-      &.close {
-        width: $app_sidebar_width--close;
-      }
+    flex-direction: column;
+    header.app-header {
+      height: $layout_header;
+      box-sizing: border-box;
+      box-shadow: 1px 0 2px 0px rgba($color: #000000, $alpha: 0.8);
     }
     .app-main {
       flex: 1;
@@ -37,24 +32,43 @@ $tarnsation_time: .3s;
 
 /* sidebar */
 .app-sidebar {
+  box-sizing: border-box;
+  padding-right: 5px;
+  box-shadow: -5px 0px 2px 0px #e1e1e1 inset;
   position: relative;
+  background-color: $layout_header_bg;
   .check_btn {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 5px);
     height: 36px;
     overflow: hidden;
-    box-shadow: 0px -3px 5px -3px rgba($color: #4D76EC, $alpha: 0.8);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 12px;
-    box-sizing: border-box;
-    background-color: #4D76EC;
-    .trans .iconfont {
-      display: inline-block;
-      transform: rotate(180deg);
+    box-shadow: 0px -3px 5px -3px rgba($color: $layout_header_bg_hover, $alpha: 0.8);
+    background-color: $layout_header_bg_hover;
+    // 切换按钮
+    .el-button {
+      width: $app_sidebar_width--close;
+      color: white;
+      @include flex-center();
+      &.trans .iconfont {
+        display: inline-block;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .image {
+    height: $layout_header;
+    @include flex-center();
+    img{
+      transition: width $tarnsation_time ease;
+    }
+  }
+  &.close{
+    padding-right: 0;
+    box-shadow: none;
+    .check_btn{
+      width: 100%;
     }
   }
 }
@@ -62,10 +76,44 @@ $tarnsation_time: .3s;
 .app-header {
   display: flex;
   align-items: center;
-  .image {
-    width: $app_sidebar_width;
+}
+
+/* 菜单栏样式调整 */
+.menus-container, .el-menu--popup {
+  border-right: none;
+  &.el-menu--collapse{
+    width: $app_sidebar_width--close;
+    .el-submenu__title{
+      @include flex-center();
+      padding: 0 !important;
+    }
+    .el-menu-item{
+      padding: 0 !important;
+      margin-left: -9px;
+      justify-content: center;
+    }
+  }
+  .el-submenu__title,
+  .el-menu-item {
+    color: $layout_sidebar_text_color;
+    background-color: $layout_sidebar_bg;
     display: flex;
     align-items: center;
-    justify-content: center;
+    i {
+      color: $colo-white;
+    }
   }
+  .el-menu-item {
+    &.is-active {
+      @include sidebar_item_active();
+    }
+    &:hover {
+      @include sidebar_item_hover();
+    }
+  }
+}
+
+.el-menu--popup{
+  border-radius: 4px;
+  padding: 0;
 }

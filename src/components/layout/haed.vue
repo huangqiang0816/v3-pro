@@ -1,8 +1,6 @@
 <template>
   <header class="app-header">
-    <div class="image">
-      <img :src="imgSrc" alt="" width="130" height="42">
-    </div>
+    头部
   </header>
 </template>
 

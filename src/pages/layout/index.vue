@@ -1,8 +1,8 @@
 <template>
   <div class="layout-container">
-    <layouHeader />
+    <layouSidebar />
     <section class="layout-content">
-       <layouSidebar />
+      <layouHeader />
       <layouMain />
     </section>
   </div>

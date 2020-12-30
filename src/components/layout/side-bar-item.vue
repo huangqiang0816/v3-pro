@@ -1,5 +1,5 @@
 <template>
-  <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+  <el-menu class="menus-container" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :router="false">
     <SideItem :meuns="meuns" />
   </el-menu>
 </template>
@@ -42,13 +42,13 @@ const meuns = [
     title: '选项3'
   }
 ]
-interface MenuItemInterface {
-  id: string;
-  path: string;
-  title: string;
-  icon: string;
-  children?: MenuItemInterface[];
-}
+// interface MenuItemInterface {
+//   id: string;
+//   path: string;
+//   title: string;
+//   icon: string;
+//   children?: MenuItemInterface[];
+// }
 
 export default defineComponent({
   functional: true,
